@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let boardBrowser = document.querySelector('#gameBoard');
 
     // Display the state of board
-    GameBoard.displayBoard();
+    GameBoard.renderBoard();
 
     // When one of the grid is clicked
     let board = document.querySelector('.board-body');
     board.addEventListener('click', function(e) {
-        console.log(e.target.dataset);
+
+        let row = parseInt(e.target.dataset.row);
+        let col = parseInt(e.target.dataset.col);
+        GameBoard.setPos(e, row, col);
     });
 
 });
